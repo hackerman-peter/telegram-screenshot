@@ -15,24 +15,39 @@ try {
 const TEMPLATE_PATH = path.join(__dirname, 'template.html');
 
 function generateMessageHTML(messages, options = {}) {
-  return messages.map(msg => {
+  return messages.map((msg, idx) => {
     const direction = msg.incoming ? 'incoming' : 'outgoing';
     const time = msg.time || '';
     const senderName = msg.sender && msg.incoming ? 
       `<div class="sender-name">${msg.sender}</div>` : '';
-    const readReceipt = !msg.incoming && msg.read ? 
-      '<span class="read-receipt">✓✓</span>' : 
-      (!msg.incoming ? '<span class="read-receipt">✓</span>' : '');
+    
+    // Check if this is the last message in a sequence from same sender
+    const nextMsg = messages[idx + 1];
+    const hasTail = !nextMsg || nextMsg.incoming !== msg.incoming;
+    const tailClass = hasTail ? 'has-tail' : '';
+    
+    // Read receipts as checkmarks
+    let readReceipt = '';
+    if (!msg.incoming) {
+      readReceipt = msg.read 
+        ? '<span class="read-receipt"><span class="check read">✓✓</span></span>'
+        : '<span class="read-receipt"><span class="check">✓</span></span>';
+    }
     
     // Check if emoji-only message
     const emojiOnly = /^[\p{Emoji}\s]+$/u.test(msg.text) && msg.text.length <= 8;
     const emojiClass = emojiOnly ? 'emoji-only' : '';
     
     return `
-      <div class="message ${direction} ${emojiClass}">
-        ${senderName}
-        <span class="message-content">${escapeHTML(msg.text)}</span>
-        <span class="message-time">${time}${readReceipt}</span>
+      <div class="message-row ${direction}">
+        <div class="message ${direction} ${tailClass} ${emojiClass}">
+          ${senderName}
+          <span class="message-content">${escapeHTML(msg.text)}</span>
+          <span class="message-footer">
+            <span class="message-time">${time}</span>
+            ${readReceipt}
+          </span>
+        </div>
       </div>
     `;
   }).join('\n');
@@ -57,8 +72,15 @@ async function generateScreenshot(config, outputPath) {
   const botBadge = config.isBot ? '<span class="bot-badge">BOT</span>' : '';
   const theme = config.theme === 'light' ? 'light' : '';
   
+  const statusTime = config.statusTime || new Date().toLocaleTimeString('en-US', { 
+    hour: 'numeric', 
+    minute: '2-digit',
+    hour12: false 
+  }).replace(/^0/, '');
+  
   const html = template
     .replace('{{THEME}}', theme)
+    .replace('{{STATUS_TIME}}', statusTime)
     .replace('{{AVATAR}}', avatarContent)
     .replace('{{CHAT_NAME}}', config.chatName || 'Chat')
     .replace('{{BOT_BADGE}}', botBadge)

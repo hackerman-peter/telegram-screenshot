@@ -9,7 +9,15 @@
   "scripts": {
     "test": "node cli.js --demo"
   },
-  "keywords": ["telegram", "screenshot", "mockup", "chat"],
+  "keywords": [
+    "telegram",
+    "screenshot",
+    "mockup",
+    "chat"
+  ],
   "author": "Peter Liang",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^24.36.1"
+  }
 }
