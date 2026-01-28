@@ -1,0 +1,16 @@
+{
+  "chatName": "Home Assistant",
+  "status": "all systems normal",
+  "isBot": true,
+  "avatarEmoji": "🏠",
+  "theme": "dark",
+  "statusTime": "22:47",
+  "messages": [
+    { "text": "🚪 Front door unlocked", "incoming": true, "time": "22:30" },
+    { "text": "Welcome home! I've turned on the living room lights and set the AC to 22°C.", "incoming": true, "time": "22:30" },
+    { "text": "Perfect thanks", "incoming": false, "time": "22:31", "read": true },
+    { "text": "Movie mode", "incoming": false, "time": "22:45", "read": true },
+    { "text": "🎬 Movie mode activated:\n• Lights dimmed to 15%\n• TV switched to Netflix\n• Blinds closed\n• Phone set to DND", "incoming": true, "time": "22:45" },
+    { "text": "🍿", "incoming": false, "time": "22:46", "read": true }
+  ]
+}

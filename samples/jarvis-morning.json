@@ -1,0 +1,19 @@
+{
+  "chatName": "Jarvis",
+  "status": "online",
+  "isBot": true,
+  "avatarEmoji": "🤖",
+  "theme": "dark",
+  "statusTime": "07:15",
+  "pinnedMessage": "Say 'help' for commands • Powered by Claude",
+  "messages": [
+    { "text": "☀️ Good morning! Here's your Tuesday briefing:", "incoming": true, "time": "07:01" },
+    { "text": "📧 Email: 2 urgent, 8 can wait\n📅 Today: Standup 10am, 1:1 with Sarah 3pm\n📈 Portfolio: +$1,247 (+2.1%)\n🌤 Sydney: 26°C, partly cloudy", "incoming": true, "time": "07:01" },
+    { "text": "Anything urgent in the emails?", "incoming": false, "time": "07:03", "read": true },
+    { "text": "Yes - AWS billing alert ($847 unexpected charges) and a meeting reschedule request from the client.", "incoming": true, "time": "07:03" },
+    { "text": "Draft a reply about the AWS charges", "incoming": false, "time": "07:04", "read": true },
+    { "text": "Done! Draft saved in Gmail. Want me to investigate the charges?", "incoming": true, "time": "07:05" },
+    { "text": "Yes please", "incoming": false, "time": "07:05", "read": true },
+    { "text": "On it. I'll check CloudWatch and report back. ☕", "incoming": true, "time": "07:05" }
+  ]
+}

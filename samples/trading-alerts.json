@@ -1,0 +1,18 @@
+{
+  "chatName": "Trading Bot",
+  "status": "monitoring 15 positions",
+  "isBot": true,
+  "avatarEmoji": "📊",
+  "theme": "dark",
+  "statusTime": "14:32",
+  "pinnedMessage": "P&L Today: +$2,847 (+3.2%) • 4 open trades",
+  "messages": [
+    { "text": "🟢 LONG EXECUTED\nSOL-PERP @ $127.41\nSize: $2,500 (4x)\nStop: $121.04 (-5%)\nTarget: $140.15 (+10%)", "incoming": true, "time": "14:20" },
+    { "text": "🎯 TAKE PROFIT HIT\nFOGO-PERP closed @ $0.0436\nEntry: $0.0312\nProfit: +$1,219 (+39.7%)", "incoming": true, "time": "14:28" },
+    { "text": "Nice! What's the SOL thesis?", "incoming": false, "time": "14:30", "read": true },
+    { "text": "SOL broke above 20-day MA with strong volume. RSI at 58 (room to run). On-chain showing accumulation from top wallets.", "incoming": true, "time": "14:30" },
+    { "text": "⚠️ ALERT: ETH approaching stop loss\nCurrent: $2,968 (1.8% from stop)\nStop: $2,915", "incoming": true, "time": "14:32" },
+    { "text": "Hold the ETH position", "incoming": false, "time": "14:32", "read": true },
+    { "text": "Confirmed. Maintaining ETH-PERP stop at $2,915. Will alert if hit.", "incoming": true, "time": "14:32" }
+  ]
+}

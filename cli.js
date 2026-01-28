@@ -26,12 +26,21 @@ function generateMessageHTML(messages, options = {}) {
     const hasTail = !nextMsg || nextMsg.incoming !== msg.incoming;
     const tailClass = hasTail ? 'has-tail' : '';
     
-    // Read receipts as checkmarks
+    // Read receipts as SVG checkmarks (like real Telegram)
     let readReceipt = '';
     if (!msg.incoming) {
-      readReceipt = msg.read 
-        ? '<span class="read-receipt"><span class="check read">✓✓</span></span>'
-        : '<span class="read-receipt"><span class="check">✓</span></span>';
+      const checkSvg = `<svg viewBox="0 0 16 16"><path d="M4 8.5l3 3 5-6"/></svg>`;
+      if (msg.read) {
+        readReceipt = `<span class="read-receipt read">
+          <svg class="check1" viewBox="0 0 16 16"><path d="M4 8.5l3 3 5-6"/></svg>
+          <svg class="check2" viewBox="0 0 16 16"><path d="M4 8.5l3 3 5-6"/></svg>
+        </span>`;
+      } else {
+        readReceipt = `<span class="read-receipt sent">
+          <svg class="check1" viewBox="0 0 16 16"><path d="M4 8.5l3 3 5-6"/></svg>
+          <svg class="check2" viewBox="0 0 16 16"><path d="M4 8.5l3 3 5-6"/></svg>
+        </span>`;
+      }
     }
     
     // Check if emoji-only message
@@ -78,6 +87,21 @@ async function generateScreenshot(config, outputPath) {
     hour12: false 
   }).replace(/^0/, '');
   
+  // Pinned message HTML
+  let pinnedHTML = '';
+  if (config.pinnedMessage) {
+    pinnedHTML = `
+      <div class="pinned-message">
+        <div class="pinned-bar"></div>
+        <div class="pinned-content">
+          <div class="pinned-label">Pinned Message</div>
+          <div class="pinned-text">${escapeHTML(config.pinnedMessage)}</div>
+        </div>
+        <div class="pinned-close">×</div>
+      </div>
+    `;
+  }
+  
   const html = template
     .replace('{{THEME}}', theme)
     .replace('{{STATUS_TIME}}', statusTime)
@@ -85,6 +109,7 @@ async function generateScreenshot(config, outputPath) {
     .replace('{{CHAT_NAME}}', config.chatName || 'Chat')
     .replace('{{BOT_BADGE}}', botBadge)
     .replace('{{STATUS}}', config.status || 'online')
+    .replace('{{PINNED_MESSAGE}}', pinnedHTML)
     .replace('{{MESSAGES}}', generateMessageHTML(config.messages || []));
   
   const browser = await puppeteer.launch({ 

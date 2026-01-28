@@ -255,19 +255,43 @@
     
     /* Read receipts - checkmarks */
     .read-receipt {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      margin-left: 2px;
+      margin-left: 3px;
+      position: relative;
+      width: 18px;
+      height: 14px;
     }
     
-    .check {
-      color: rgba(148,196,234,0.8);
-      font-size: 14px;
-      letter-spacing: -5px;
+    .read-receipt svg {
+      position: absolute;
+      width: 16px;
+      height: 16px;
     }
     
-    .check.read {
-      color: #5eaadf;
+    .read-receipt svg.check1 {
+      left: 0;
+    }
+    
+    .read-receipt svg.check2 {
+      left: 6px;
+    }
+    
+    .read-receipt svg path {
+      fill: none;
+      stroke: rgba(148,196,234,0.7);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    
+    .read-receipt.read svg path {
+      stroke: #5eaadf;
+    }
+    
+    /* Single check (sent but not read) */
+    .read-receipt.sent svg.check2 {
+      display: none;
     }
     
     /* Sender name for groups */
@@ -303,6 +327,55 @@
       border-radius: 16px;
       font-size: 13px;
       font-weight: 500;
+    }
+    
+    /* Pinned message bar */
+    .pinned-message {
+      background: #17212b;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .pinned-icon {
+      color: #5eaadf;
+      font-size: 16px;
+      transform: rotate(45deg);
+    }
+    
+    .pinned-bar {
+      width: 2px;
+      height: 32px;
+      background: #5eaadf;
+      border-radius: 1px;
+    }
+    
+    .pinned-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .pinned-label {
+      color: #5eaadf;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    .pinned-text {
+      color: #fff;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      opacity: 0.8;
+    }
+    
+    .pinned-close {
+      color: #6d7f8f;
+      font-size: 18px;
+      padding: 4px;
     }
     
     /* Input bar */
@@ -444,6 +517,8 @@
         </svg>
       </div>
     </div>
+    
+    {{PINNED_MESSAGE}}
     
     <div class="messages">
       {{MESSAGES}}
