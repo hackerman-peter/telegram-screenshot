@@ -1,0 +1,15 @@
+{
+  "name": "telegram-screenshot",
+  "version": "1.0.0",
+  "description": "Generate Telegram-style chat screenshots from JSON",
+  "main": "index.js",
+  "bin": {
+    "tg-screenshot": "./cli.js"
+  },
+  "scripts": {
+    "test": "node cli.js --demo"
+  },
+  "keywords": ["telegram", "screenshot", "mockup", "chat"],
+  "author": "Peter Liang",
+  "license": "MIT"
+}
