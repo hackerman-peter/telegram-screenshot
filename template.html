@@ -182,6 +182,9 @@
       flex-direction: column;
       gap: 1px;
       background: #0e1621;
+      background-image: url('{{CHAT_BG}}');
+      background-size: cover;
+      background-position: center;
       min-height: calc(100vh - 110px);
     }
     
@@ -378,59 +381,74 @@
       padding: 4px;
     }
     
-    /* Input bar */
+    /* Input bar - transparent with pattern showing through */
     .input-bar {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: #17212b;
-      padding: 8px;
+      background: transparent;
+      padding: 8px 10px 12px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
     
-    .input-btn {
-      width: 32px;
-      height: 32px;
-      color: #5eaadf;
+    .input-field {
+      flex: 1;
+      background: #1c2733;
+      border-radius: 22px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .input-icon {
+      width: 26px;
+      height: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      flex-shrink: 0;
     }
     
-    .input-field {
-      flex: 1;
-      background: #242f3d;
-      border-radius: 18px;
-      padding: 8px 14px;
-      color: #fff;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
+    .input-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: #6d7883;
+      stroke-width: 1.5;
     }
     
     .input-placeholder {
-      color: #6d7f8f;
+      flex: 1;
+      color: #6d7883;
+      font-size: 16px;
     }
     
-    .send-btn {
-      width: 32px;
-      height: 32px;
-      background: #5eaadf;
+    .attach-icon svg {
+      stroke: #6d7883;
+      transform: rotate(-45deg);
+    }
+    
+    .mic-btn {
+      width: 44px;
+      height: 44px;
+      background: #1c2733;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
     
-    .send-btn svg {
-      width: 18px;
-      height: 18px;
-      fill: #fff;
-      margin-left: 2px;
+    .mic-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #6d7883;
+      stroke-width: 1.5;
     }
     
     /* Light theme */
@@ -525,13 +543,27 @@
     </div>
     
     <div class="input-bar">
-      <div class="input-btn">📎</div>
       <div class="input-field">
+        <div class="input-icon emoji-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="9" cy="10" r="1" fill="#6d7883" stroke="none"/>
+            <circle cx="15" cy="10" r="1" fill="#6d7883" stroke="none"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke-linecap="round"/>
+          </svg>
+        </div>
         <span class="input-placeholder">Message</span>
+        <div class="input-icon attach-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke-linecap="round"/>
+          </svg>
+        </div>
       </div>
-      <div class="input-btn">😊</div>
-      <div class="send-btn">
-        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      <div class="mic-btn">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
+          <path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke-linecap="round"/>
+        </svg>
       </div>
     </div>
   </div>

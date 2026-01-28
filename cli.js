@@ -13,6 +13,7 @@ try {
 }
 
 const TEMPLATE_PATH = path.join(__dirname, 'template.html');
+const DEFAULT_BG_PATH = path.join(__dirname, 'chat-bg.jpg');
 
 function generateMessageHTML(messages, options = {}) {
   return messages.map((msg, idx) => {
@@ -74,6 +75,15 @@ function escapeHTML(str) {
 async function generateScreenshot(config, outputPath) {
   const template = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
   
+  // Load chat background as base64
+  let chatBgDataUrl = '';
+  const bgPath = config.backgroundImage || DEFAULT_BG_PATH;
+  if (fs.existsSync(bgPath)) {
+    const bgBase64 = fs.readFileSync(bgPath).toString('base64');
+    const ext = path.extname(bgPath).slice(1) || 'jpg';
+    chatBgDataUrl = `data:image/${ext};base64,${bgBase64}`;
+  }
+  
   const avatarContent = config.avatarUrl 
     ? `<img src="${config.avatarUrl}" alt="avatar">`
     : (config.avatarEmoji || config.chatName?.charAt(0) || '🤖');
@@ -110,6 +120,7 @@ async function generateScreenshot(config, outputPath) {
     .replace('{{BOT_BADGE}}', botBadge)
     .replace('{{STATUS}}', config.status || 'online')
     .replace('{{PINNED_MESSAGE}}', pinnedHTML)
+    .replace('{{CHAT_BG}}', chatBgDataUrl)
     .replace('{{MESSAGES}}', generateMessageHTML(config.messages || []));
   
   const browser = await puppeteer.launch({ 
