@@ -1,0 +1,17 @@
+{
+  "chatName": "Jarvis",
+  "status": "online",
+  "isBot": true,
+  "avatarEmoji": "🤖",
+  "theme": "dark",
+  "statusTime": "18:34",
+  "messages": [
+    { "text": "gf wants a nice dinner Saturday. Something Japanese, downtown, romantic vibe", "incoming": false, "time": "18:30", "read": true },
+    { "text": "On it. Checking top Japanese spots downtown with good date-night ambiance...", "incoming": true, "time": "18:30" },
+    { "text": "Found 3 great options:\n\n🥇 Omakase House - $180pp, intimate 8-seat bar\n🥈 Nobu - $150pp, stunning views\n🥉 Izakaya Roku - $90pp, lively vibe\n\nOmakase House has a 4.9 rating and she mentioned wanting to try omakase. Want me to book?", "incoming": true, "time": "18:31" },
+    { "text": "Omakase House sounds perfect. 7:30pm?", "incoming": false, "time": "18:32", "read": true },
+    { "text": "Calling now...", "incoming": true, "time": "18:32" },
+    { "text": "✅ BOOKED: Omakase House\n📅 Saturday, Feb 1 @ 7:30pm\n👥 2 people\n📍 Sent you the address\n💳 Card on file for no-show ($50pp)\n\nThey noted it's a special occasion. Added to your calendar + texted her the details.", "incoming": true, "time": "18:34" },
+    { "text": "Legend 🙌", "incoming": false, "time": "18:34", "read": true }
+  ]
+}

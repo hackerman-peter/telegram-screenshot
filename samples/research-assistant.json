@@ -1,0 +1,16 @@
+{
+  "chatName": "Research AI",
+  "status": "online",
+  "isBot": true,
+  "avatarEmoji": "🔍",
+  "theme": "dark",
+  "statusTime": "14:23",
+  "messages": [
+    { "text": "Find me the best noise cancelling headphones under $400", "incoming": false, "time": "14:20", "read": true },
+    { "text": "Researching... checking 6 sources", "incoming": true, "time": "14:20" },
+    { "text": "📊 Top 3 picks:\n\n1. Sony WH-1000XM5 ($348)\n   → Best overall ANC, 30hr battery\n   → Downsides: No water resistance\n\n2. Bose QC Ultra ($379)\n   → Most comfortable, spatial audio\n   → Downsides: Shorter battery (24hr)\n\n3. Apple AirPods Max ($395)\n   → Best for Apple ecosystem\n   → Downsides: Heavy, no USB-C case", "incoming": true, "time": "14:22" },
+    { "text": "My pick: Sony XM5 for value. Bose if comfort is #1.", "incoming": true, "time": "14:22" },
+    { "text": "Get me the Sony. Best price?", "incoming": false, "time": "14:23", "read": true },
+    { "text": "Found $319 on Amazon Warehouse (Like New). Want the link?", "incoming": true, "time": "14:23" }
+  ]
+}

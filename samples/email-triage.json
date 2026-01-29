@@ -1,0 +1,17 @@
+{
+  "chatName": "Inbox Zero",
+  "status": "monitoring inbox",
+  "isBot": true,
+  "avatarEmoji": "📬",
+  "theme": "dark",
+  "statusTime": "09:15",
+  "pinnedMessage": "47 emails processed today • 3 need attention",
+  "messages": [
+    { "text": "🔴 URGENT: Your AWS bill is $2,847\n(vs $400 usual)\n\nLooks like someone left GPU instances running since Tuesday.", "incoming": true, "time": "09:12" },
+    { "text": "Shit. Can you draft a response to finance?", "incoming": false, "time": "09:13", "read": true },
+    { "text": "Done. Draft says:\n\n\"Hi team, investigating unusual AWS spend. Found root cause: dev GPU instances. Terminating now. Will have full report by EOD.\"\n\nSend it?", "incoming": true, "time": "09:14" },
+    { "text": "Yes and kill those instances", "incoming": false, "time": "09:14", "read": true },
+    { "text": "✅ Email sent\n✅ 4 GPU instances terminated\n💰 Estimated savings: $180/day\n\nAlso set up a billing alert for >$500.", "incoming": true, "time": "09:15" },
+    { "text": "You're a lifesaver", "incoming": false, "time": "09:15", "read": true }
+  ]
+}

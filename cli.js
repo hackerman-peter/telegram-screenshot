@@ -112,6 +112,8 @@ async function generateScreenshot(config, outputPath) {
     `;
   }
   
+  const inputBarClass = config.hideInputBar ? 'hidden' : '';
+  
   const html = template
     .replace('{{THEME}}', theme)
     .replace('{{STATUS_TIME}}', statusTime)
@@ -121,6 +123,7 @@ async function generateScreenshot(config, outputPath) {
     .replace('{{STATUS}}', config.status || 'online')
     .replace('{{PINNED_MESSAGE}}', pinnedHTML)
     .replace('{{CHAT_BG}}', chatBgDataUrl)
+    .replace('{{INPUT_BAR_CLASS}}', inputBarClass)
     .replace('{{MESSAGES}}', generateMessageHTML(config.messages || []));
   
   const browser = await puppeteer.launch({ 

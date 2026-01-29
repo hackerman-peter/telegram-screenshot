@@ -1,0 +1,18 @@
+{
+  "chatName": "Trading Bot",
+  "status": "watching 12 positions",
+  "isBot": true,
+  "avatarEmoji": "📈",
+  "theme": "dark",
+  "statusTime": "03:42",
+  "pinnedMessage": "Portfolio: +$4,832 today (+5.2%)",
+  "messages": [
+    { "text": "🚨 ALERT: SOL breaking out", "incoming": true, "time": "03:38" },
+    { "text": "Volume 3x average. Breaking $145 resistance.\nShould I open a position?", "incoming": true, "time": "03:38" },
+    { "text": "Yes, 2x long, $500", "incoming": false, "time": "03:39", "read": true },
+    { "text": "✅ OPENED: SOL-PERP\n• Entry: $145.23\n• Size: $1,000 (2x)\n• Stop: $138 (-5%)\n• Target: $160 (+10%)", "incoming": true, "time": "03:39" },
+    { "text": "🎯 TARGET HIT: SOL +10.2%\nClosed at $160.05\nProfit: +$102", "incoming": true, "time": "03:41" },
+    { "text": "That was fast 🔥", "incoming": false, "time": "03:42", "read": true },
+    { "text": "41 minutes. Want me to look for the next setup?", "incoming": true, "time": "03:42" }
+  ]
+}

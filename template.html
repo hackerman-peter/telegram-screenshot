@@ -237,14 +237,25 @@
       white-space: pre-wrap;
     }
     
+    /* Inline spacer to reserve room for time/checkmarks */
+    .message-content::after {
+      content: '\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+      visibility: hidden;
+    }
+    
+    .message.outgoing .message-content::after {
+      content: '\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+    }
+    
     .message-footer {
-      display: flex;
-      justify-content: flex-end;
+      display: inline-flex;
       align-items: center;
       gap: 3px;
-      margin-top: 2px;
       float: right;
-      margin-left: 10px;
+      margin-left: 8px;
+      margin-top: 4px;
+      position: relative;
+      top: 4px;
     }
     
     .message-time {
@@ -382,6 +393,8 @@
     }
     
     /* Input bar - transparent with pattern showing through */
+    .input-bar.hidden { display: none; }
+
     .input-bar {
       position: absolute;
       bottom: 0;
@@ -459,7 +472,9 @@
     body.light .phone-frame,
     body.light .status-bar,
     body.light .header,
-    body.light .input-bar {
+    body.light .input-bar.hidden { display: none; }
+
+    .input-bar {
       background: #547a9e;
     }
     
@@ -542,7 +557,7 @@
       {{MESSAGES}}
     </div>
     
-    <div class="input-bar">
+    <div class="input-bar {{INPUT_BAR_CLASS}}">
       <div class="input-field">
         <div class="input-icon emoji-icon">
           <svg viewBox="0 0 24 24">
